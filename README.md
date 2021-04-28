@@ -30,6 +30,10 @@ Basically, the frontend side of the system refers to the main website of the who
 
 The frontend of this E-Commerce Website using Django has these basic features of the website.
 
+
+
+
+
 E-Commerce Website using Django with Source Code
 POSTED BY ADONES EVANGELISTAPOSTED IN PYTHON PROJECTSNOVEMBER 23, 2020
 E-Commerce Website using Django with Source Code
