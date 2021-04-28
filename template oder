@@ -1,0 +1,36 @@
+{% extends 'shop/base.html' %}
+{% load static %}
+{% block title %}
+Your Shopping Cart| Checkout
+{% endblock %}
+
+{% block content %}
+&lt;div class="container"&gt;
+&lt;div class="row" style="margin-top: 6%"&gt;
+&lt;div class="col-md-8"&gt;
+&lt;h4 class="page-header"&gt;Checkout&lt;/h4&gt;
+&lt;form action="." method="post"&gt;
+{% csrf_token %}
+{{ form.as_p }}&lt;br&gt;
+&lt;input type="submit" class="btn btn-primary" value="Submit order"&gt;
+&lt;/form&gt;
+&lt;/div&gt;
+&lt;div class="col-md-4"&gt;
+&lt;div class="page-header"&gt;
+Your Order
+&lt;/div&gt;
+&lt;ul class="list-group"&gt;
+{% for item in cart %}
+&lt;li class="list-group-item"&gt;
+{{ item.quantity }}x {{ item.product.name }}
+&lt;span&gt; P{{ item.total_price }}&lt;/span&gt;
+&lt;/li&gt;
+{% endfor %}
+
+&lt;li class="list-group-item active"&gt;Total Cost: P{{ cart.get_total_price }}&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+{% endblock %}
