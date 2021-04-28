@@ -1,0 +1,38 @@
+&lt;!DOCTYPE html&gt;
+{% load static %}
+&lt;html lang="en"&gt;
+&lt;head&gt;
+&lt;meta charset="UTF-8"&gt;
+&lt;title&gt;{% block title %}On-line Shop{% endblock %}&lt;/title&gt;
+&lt;link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"&gt;
+
+&lt;/head&gt;
+&lt;body style="background-color: navajowhite"&gt;
+{% include 'shop/navbar.html' %}
+
+&lt;div class="container"&gt;
+&lt;div class="row" style="margin-top: 6%"&gt;
+&lt;button class="btn btn-danger pull-right"&gt;
+{% with totail_items=cart|length %}
+{% if cart|length &gt; 0 %}
+My Shopping Order:
+&lt;a href="{% url "cart:cart_detail" %}" style="color: white"&gt;
+{{ totail_items }} item {{ totail_items|pluralize }}, P{{ cart.get_total_price }}
+&lt;/a&gt;
+{% else %}
+Your cart is empty.
+{% endif %}
+{% endwith %}
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+{% block content %}
+
+
+{% endblock %}
+
+&lt;script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"&gt;&lt;/script&gt;
+&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"&gt;&lt;/script&gt;
+&lt;script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
